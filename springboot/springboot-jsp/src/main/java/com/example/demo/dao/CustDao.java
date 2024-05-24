@@ -13,41 +13,49 @@ import com.example.demo.repository.CustRepository;
 @Repository
 public class CustDao {
 	@Autowired
-	CustRepository  custRepository;
+	CustRepository custRepository;
+
 	public String insert(CustDto custDto) {
 		custRepository.save(custDto);
 		return "data inserted";
-		
+
 	}
+
 	public Optional<CustDto> fid(int id) {
-		Optional<CustDto> op=custRepository.findById(id);
-		if(op.isPresent()) {
+		Optional<CustDto> op = custRepository.findById(id);
+		if (op.isPresent()) {
 			return op;
-		}else {
+		} else {
 			return null;
 		}
 	}
+
 	public List<CustDto> fall() {
 		return custRepository.findAll();
 	}
+
 	public String did(int id) {
-		Optional<CustDto> op=custRepository.findById(id);
-		if(op.isPresent()) {
-		 	custRepository.deleteById(id);
-		 	return "data deleted";
-		}else {
+		Optional<CustDto> op = custRepository.findById(id);
+		if (op.isPresent()) {
+			custRepository.deleteById(id);
+			return "data deleted";
+		} else {
 			return "no data found";
 		}
-		}
-	public String dall() {
-		List<CustDto> l=custRepository.findAll();
-		if(l.isEmpty()) {
-			return "data not found";
-		}else {
-		custRepository.deleteAll();
-		return "data deleted";
-	}
 	}
 
+	public String dall() {
+		List<CustDto> l = custRepository.findAll();
+		if (l.isEmpty()) {
+			return "data not found";
+		} else {
+			custRepository.deleteAll();
+			return "data deleted";
+		}
+	}
+	public String update(CustDto custDto) {
+		custRepository.save(custDto);
+		return "data updated";
+	}
 
 }

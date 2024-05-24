@@ -61,6 +61,12 @@ public class CustController {
 	public String dall() {
 		return custService.dall();
 	}
+	@RequestMapping("/update")
+	@ResponseBody
+	public String update(@ModelAttribute CustDto custDto) {
+		return custService.update(custDto);
+		
+	}
 	
 
 }

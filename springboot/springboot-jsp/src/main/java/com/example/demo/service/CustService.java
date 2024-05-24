@@ -32,7 +32,9 @@ public class CustService {
 	public String dall() {
 		return custDao.dall();
 	}
-
+   public String update(CustDto custDto) {
+	   return custDao.update(custDto);
+   }
 
 
 }
